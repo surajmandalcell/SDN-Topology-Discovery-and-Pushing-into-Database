@@ -1,0 +1,25 @@
+{
+    "dpid": 1,
+    "type": "SELECT",
+    "group_id": 50,
+    "buckets": [
+        {
+            "weight": 50,
+            "actions": [
+                {
+                    "type": "OUTPUT",
+                    "port": 1
+                }
+            ]
+        },
+        {
+            "weight": 50,
+             "actions": [
+                {
+                    "type": "OUTPUT",
+                    "port": 2
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "dpid": 2,
+    "type": "ALL",
+    "group_id": 51,
+    "buckets": [
+        {
+            "actions": [
+                {
+                    "type": "OUTPUT",
+                    "port": 1
+                }
+            ]
+        },
+        {
+             "actions": [
+                {
+                    "type": "OUTPUT",
+                    "port": 3
+                }
+            ]
+        }
+    ]
+}

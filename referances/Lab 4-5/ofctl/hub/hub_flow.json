@@ -1,0 +1,15 @@
+{
+    "dpid": 1,
+    "table_id": 0,
+    "idle_timeout": 0,
+    "hard_timeout": 0,
+    "priority": 100,
+    "match":{
+    },
+    "actions":[
+        {
+            "type":"OUTPUT",
+            "port": 4294967291
+        }
+    ]
+}

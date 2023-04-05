@@ -1,0 +1,66 @@
+suresh@suresh-Latitude-6430U:~$ sudo ovs-ofctl -O OpenFlow13 dump-flows s1
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=37.661s, table=0, n_packets=3, n_bytes=238, priority=1,in_port=2,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=37.655s, table=0, n_packets=2, n_bytes=140, priority=1,in_port=1,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:02 actions=output:2
+
+ cookie=0x0, duration=37.633s, table=0, n_packets=0, n_bytes=0, 
+priority=1,in_port=1,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+
+ cookie=0x0, duration=37.613s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=1,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:04 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=37.592s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=1,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:05 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=37.570s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=1,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:06 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=19.525s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=2,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+
+ cookie=0x0, duration=19.500s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=2,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=19.473s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=2,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:05 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=19.448s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=2,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:06 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=8.165s, table=0, n_packets=3, n_bytes=238, priority=1,in_port=3,dl_src=00:00:00:00:00:11,dl_dst=00:00:00:00:00:13 actions=push_vlan:0x8100,set_field:4296->vlan_vid,output:5
+
+ cookie=0x0, duration=37.636s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:01 actions=pop_vlan,output:1
+ cookie=0x0, duration=37.616s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:01 actions=pop_vlan,output:1
+ cookie=0x0, duration=37.595s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:01 actions=pop_vlan,output:1
+ cookie=0x0, duration=37.573s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:06,dl_dst=00:00:00:00:00:01 actions=pop_vlan,output:1
+ cookie=0x0, duration=19.530s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:02 actions=pop_vlan,output:2
+ cookie=0x0, duration=19.503s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02 actions=pop_vlan,output:2
+ cookie=0x0, duration=19.476s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:02 actions=pop_vlan,output:2
+ cookie=0x0, duration=19.450s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:06,dl_dst=00:00:00:00:00:02 actions=pop_vlan,output:2
+ cookie=0x0, duration=8.171s, table=0, n_packets=4, n_bytes=352, priority=1,in_port=5,dl_vlan=200,dl_src=00:00:00:00:00:13,dl_dst=00:00:00:00:00:11 actions=pop_vlan,output:3
+ cookie=0x0, duration=72.254s, table=0, n_packets=57, n_bytes=2990, priority=0 actions=CONTROLLER:65535
+
+
+
+
+
+suresh@suresh-Latitude-6430U:~$ sudo ovs-ofctl -O OpenFlow13 dump-flows s2
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=46.448s, table=0, n_packets=1, n_bytes=98, priority=1,in_port=1,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:01 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=46.427s, table=0, n_packets=1, n_bytes=98, priority=1,in_port=2,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:01 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=28.343s, table=0, n_packets=1, n_bytes=98, priority=1,in_port=1,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:02 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=28.315s, table=0, n_packets=1, n_bytes=98, priority=1,in_port=2,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=16.984s, table=0, n_packets=4, n_bytes=336, priority=1,in_port=3,dl_src=00:00:00:00:00:13,dl_dst=00:00:00:00:00:11 actions=push_vlan:0x8100,set_field:4296->vlan_vid,output:5
+ cookie=0x0, duration=46.438s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=pop_vlan,output:1
+ cookie=0x0, duration=46.418s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:04 actions=pop_vlan,output:2
+ cookie=0x0, duration=46.405s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=6,dl_vlan=100,dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:01 actions=output:5
+ cookie=0x0, duration=46.398s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:05 actions=output:6
+ cookie=0x0, duration=46.383s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=6,dl_vlan=100,dl_src=00:00:00:00:00:06,dl_dst=00:00:00:00:00:01 actions=output:5
+ cookie=0x0, duration=46.376s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:06 actions=output:6
+ cookie=0x0, duration=28.330s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03 actions=pop_vlan,output:1
+ cookie=0x0, duration=28.305s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04 actions=pop_vlan,output:2
+ cookie=0x0, duration=28.288s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=6,dl_vlan=100,dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:02 actions=output:5
+ cookie=0x0, duration=28.279s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:05 actions=output:6
+ cookie=0x0, duration=28.262s, table=0, n_packets=1, n_bytes=102, priority=1,in_port=6,dl_vlan=100,dl_src=00:00:00:00:00:06,dl_dst=00:00:00:00:00:02 actions=output:5
+ cookie=0x0, duration=28.254s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:06 actions=output:6
+ cookie=0x0, duration=16.970s, table=0, n_packets=3, n_bytes=250, priority=1,in_port=5,dl_vlan=200,dl_src=00:00:00:00:00:11,dl_dst=00:00:00:00:00:13 actions=pop_vlan,output:3
+ cookie=0x0, duration=81.059s, table=0, n_packets=55, n_bytes=3014, priority=0 actions=CONTROLLER:65535
+suresh@suresh-Latitude-6430U:~$ sudo ovs-ofctl -O OpenFlow13 dump-flows s3
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=47.580s, table=0, n_packets=1, n_bytes=98, priority=1,in_port=1,dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:01 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=47.558s, table=0, n_packets=1, n_bytes=98, priority=1,in_port=2,dl_src=00:00:00:00:00:06,dl_dst=00:00:00:00:00:01 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=29.462s, table=0, n_packets=1, n_bytes=98, priority=1,in_port=1,dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:02 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=29.436s, table=0, n_packets=1, n_bytes=98, priority=1,in_port=2,dl_src=00:00:00:00:00:06,dl_dst=00:00:00:00:00:02 actions=push_vlan:0x8100,set_field:4196->vlan_vid,output:5
+ cookie=0x0, duration=47.567s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:05 actions=pop_vlan,output:1
+ cookie=0x0, duration=47.546s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:06 actions=pop_vlan,output:2
+ cookie=0x0, duration=29.448s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:05 actions=pop_vlan,output:1
+ cookie=0x0, duration=29.423s, table=0, n_packets=0, n_bytes=0, priority=1,in_port=5,dl_vlan=100,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:06 actions=pop_vlan,output:2
+ cookie=0x0, duration=82.233s, table=0, n_packets=45, n_bytes=2278, priority=0 actions=CONTROLLER:65535
+suresh@suresh-Latitude-6430U:~$ 
