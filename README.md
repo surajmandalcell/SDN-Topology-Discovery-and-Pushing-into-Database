@@ -8,7 +8,7 @@ Todo:
 - [ ] : Make sure data can be logged
 - [ ] : Make sure data can be sent to database
 - [ ] : Make sure data can be visualized
-
+- [ ] : Finish the project
 ---
 #### Project Members:
 - Suraj Mandal
