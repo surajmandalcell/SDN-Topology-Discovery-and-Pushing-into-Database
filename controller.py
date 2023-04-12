@@ -16,6 +16,7 @@ class SimpleSwitch13(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(SimpleSwitch13, self).__init__(*args, **kwargs)
         self.mac_to_port = {}
+        self.hosts = set()
 
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):
@@ -83,6 +84,20 @@ class SimpleSwitch13(app_manager.RyuApp):
         self.mac_to_port.setdefault(dpid, {})
 
         self.logger.info("packet in %s %s %s %s", dpid, src, dst, in_port)
+
+        if eth.ethertype == ether_types.ETH_TYPE_IP:
+            ip = pkt.get_protocol(ipv4.ipv4)
+            srcip = ip.src
+            dstip = ip.dst
+            self.logger.info(
+                "IP packet received from host %s to host %s",
+                srcip,
+                dstip,
+            )
+
+        # add source and destination MAC addresses to the hosts set
+        self.hosts.add(src)
+        self.hosts.add(dst)
 
         # learn a mac address to avoid FLOOD next time.
         self.mac_to_port[dpid][src] = in_port
