@@ -1,15 +1,30 @@
 ### Topology Discovery and Monitoring
 
 Todo:
-- [ ] : Add a description of the project
 - [ ] : Make presentation for the project
-- [ ] : Make sure topology is runnable
-- [ ] : Make sure controller is runnable
-- [ ] : Make sure data can be logged
+- [x] : Make sure topology is runnable
+- [x] : Make sure controller is runnable
+- [x] : Make sure data can be logged
 - [ ] : Make sure data can be sent to database
 - [ ] : Make sure data can be visualized
 - [ ] : Finish the project
 ---
+
+#### Steps to run the project:
+```
+ryu-manager controller.py
+```
+
+To run ring topology:
+```
+sudo ring.py
+```
+
+To run star topology:
+```
+sudo star.py
+```
+
 #### Project Members:
 - Suraj Mandal
 - Lakhwinder Singh
