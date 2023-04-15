@@ -13,6 +13,6 @@ client = MongoClient(uri)
 def ping():
     try:
         client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
+        print("You successfully connected to MongoDB!")
     except Exception as e:
         print(e)
