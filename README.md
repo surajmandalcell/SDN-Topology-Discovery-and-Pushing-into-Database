@@ -11,8 +11,9 @@ Todo:
 ---
 
 #### Steps to run the project:
+python binary which the controller and topology uses will be printed at start
 ```
-pyenv shell sdn
+/usr/bin/python3
 ```
 
 ```

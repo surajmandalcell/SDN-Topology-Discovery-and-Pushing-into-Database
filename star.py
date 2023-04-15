@@ -1,11 +1,15 @@
 #!/usr/bin/python
 
 import os
+import sys
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.link import TCLink
 from mininet.cli import CLI
+from mininet.log import setLogLevel
 from mininet.node import OVSSwitch, RemoteController
+
+print("Using Python:", sys.executable)
 
 
 class MyTopo(Topo):
@@ -25,6 +29,7 @@ class MyTopo(Topo):
 if __name__ == '__main__':
     os.system("sudo mn -c")
 
+    setLogLevel("info")
     topo = MyTopo()
 
     # Create controller object and start the controller

@@ -1,12 +1,15 @@
 #!/usr/bin/python
 
 import os
+import sys
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.link import TCLink
 from mininet.cli import CLI
 from mininet.log import setLogLevel
 from mininet.node import OVSSwitch, RemoteController
+
+print("Using Python:", sys.executable)
 
 
 class MyTopo(Topo):

@@ -1,14 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 import sys
 from ryu.base import app_manager
 from ryu.controller import ofp_event
-from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER, set_ev_cls
 from ryu.ofproto import ofproto_v1_3
 from ryu.lib.packet import packet, ethernet, ether_types, ipv4
+from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER, set_ev_cls
 
-from db import ping
-
-ping()
+from db import db_push
 
 print("Using Python:", sys.executable)
 
@@ -86,6 +84,13 @@ class SimpleSwitch13(app_manager.RyuApp):
         dpid = datapath.id
         self.mac_to_port.setdefault(dpid, {})
 
+        log_dict = {
+            'datapath': dpid,
+            'src_mac': src,
+            'dst_mac': dst,
+            'in_port': in_port
+        }
+
         self.logger.info(
             "Packet in datapath %s, source MAC %s, destination MAC %s, "
             "in port %s",
@@ -95,7 +100,10 @@ class SimpleSwitch13(app_manager.RyuApp):
             in_port,
         )
 
-        # ping()
+        try:
+            db_push(log_dict)
+        except Exception as e:
+            print(e)
 
         # add source and destination MAC addresses to the hosts set
         self.hosts.add(src)
