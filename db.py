@@ -1,4 +1,5 @@
 import base64
+from datetime import datetime
 from pymongo.mongo_client import MongoClient
 
 uri = base64.b64decode(
@@ -21,6 +22,7 @@ def ping():
 
 def db_push(log_dict):
     try:
+        log_dict['timestamp'] = datetime.utcnow()
         collection.insert_one(log_dict)
         print("Successfully inserted log into MongoDB")
     except Exception as e:
