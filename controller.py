@@ -1,13 +1,16 @@
-##
+#!/usr/bin/env python
+import sys
 from ryu.base import app_manager
 from ryu.controller import ofp_event
-from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER
-from ryu.controller.handler import set_ev_cls
+from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER, set_ev_cls
 from ryu.ofproto import ofproto_v1_3
-from ryu.lib.packet import packet
-from ryu.lib.packet import ethernet
-from ryu.lib.packet import ether_types
-from ryu.lib.packet import ipv4
+from ryu.lib.packet import packet, ethernet, ether_types, ipv4
+
+from db import ping
+
+ping()
+
+print("Using Python:", sys.executable)
 
 
 class SimpleSwitch13(app_manager.RyuApp):
@@ -83,17 +86,16 @@ class SimpleSwitch13(app_manager.RyuApp):
         dpid = datapath.id
         self.mac_to_port.setdefault(dpid, {})
 
-        self.logger.info("packet in %s %s %s %s", dpid, src, dst, in_port)
+        self.logger.info(
+            "Packet in datapath %s, source MAC %s, destination MAC %s, "
+            "in port %s",
+            dpid,
+            src,
+            dst,
+            in_port,
+        )
 
-        if eth.ethertype == ether_types.ETH_TYPE_IP:
-            ip = pkt.get_protocol(ipv4.ipv4)
-            srcip = ip.src
-            dstip = ip.dst
-            self.logger.info(
-                "IP packet received from host %s to host %s",
-                srcip,
-                dstip,
-            )
+        # ping()
 
         # add source and destination MAC addresses to the hosts set
         self.hosts.add(src)

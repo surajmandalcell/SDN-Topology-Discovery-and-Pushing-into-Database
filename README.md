@@ -12,6 +12,10 @@ Todo:
 
 #### Steps to run the project:
 ```
+pyenv shell sdn
+```
+
+```
 ryu-manager controller.py
 ```
 
